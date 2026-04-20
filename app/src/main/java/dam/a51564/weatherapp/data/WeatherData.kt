@@ -4,8 +4,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class WeatherData(
-    var latitude: String,
-    var longitude: String,
+    var latitude: Float,
+    var longitude: Float,
     var timezone: String,
     var current_weather: CurrentWeather,
     var hourly: Hourly,

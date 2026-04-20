@@ -19,9 +19,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import dam.a51564.weatherapp.R
 
 @Composable
 fun CoordinatesCard(
@@ -50,7 +52,7 @@ fun CoordinatesCard(
             verticalArrangement = Arrangement.spacedBy(12.dp) // Adds even spacing between items
         ) {
             Text(
-                text = "Coordinates",
+                text = stringResource(R.string.coordinates),
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary
@@ -64,7 +66,7 @@ fun CoordinatesCard(
                 OutlinedTextField(
                     value = latitudeText,
                     onValueChange = onLatitudeChange,
-                    label = { Text("Latitude") },
+                    label = { Text(stringResource(R.string.latitude)) },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
                     modifier = Modifier.weight(1f), // Takes up exactly half the row
                     singleLine = true,
@@ -74,7 +76,7 @@ fun CoordinatesCard(
                 OutlinedTextField(
                     value = longitudeText,
                     onValueChange = onLongitudeChange,
-                    label = { Text("Longitude") },
+                    label = { Text(stringResource(R.string.longitude)) },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
                     modifier = Modifier.weight(1f), // Takes up exactly half the row
                     singleLine = true,

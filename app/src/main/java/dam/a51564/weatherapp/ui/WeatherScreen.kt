@@ -3,9 +3,7 @@ package dam.a51564.weatherapp.ui
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
@@ -16,10 +14,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import dam.a51564.weatherapp.R
 import dam.a51564.weatherapp.data.WMOWeatherCode
 import dam.a51564.weatherapp.data.getWeatherCodeMap
 import dam.a51564.weatherapp.viewmodel.WeatherViewModel
@@ -125,7 +125,7 @@ fun PortraitWeatherUI(
         if (wIcon != 0) {
             Image(
                 painter = painterResource(id = wIcon),
-                contentDescription = "Weather Icon",
+                contentDescription = stringResource(R.string.weather_icon_desc),
                 modifier = Modifier.size(120.dp)
             )
         }
@@ -152,7 +152,7 @@ fun PortraitWeatherUI(
                 .height(50.dp),
             shape = RoundedCornerShape(12.dp)
         ) {
-            Text(text = "Update Weather", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+            Text(text = stringResource(R.string.update_weather_btn), fontWeight = FontWeight.Bold, fontSize = 16.sp)
         }
     }
 }
@@ -190,7 +190,7 @@ fun LandscapeWeatherUI(
             if (wIcon != 0) {
                 Image(
                     painter = painterResource(id = wIcon),
-                    contentDescription = "Weather Icon",
+                    contentDescription = stringResource(R.string.weather_icon_desc),
                     modifier = Modifier.size(100.dp)
                 )
             }
@@ -210,7 +210,7 @@ fun LandscapeWeatherUI(
                     .height(48.dp),
                 shape = RoundedCornerShape(12.dp)
             ) {
-                Text(text = "Update Weather", fontWeight = FontWeight.Bold)
+                Text(text = stringResource(R.string.update_weather_btn), fontWeight = FontWeight.Bold)
             }
         }
 
