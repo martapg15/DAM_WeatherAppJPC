@@ -9,7 +9,7 @@ data class WeatherData(
     var timezone: String,
     var current_weather: CurrentWeather,
     var hourly: Hourly,
-    var daily: Daily
+    var daily: Daily? = null
 )
 
 @Serializable
