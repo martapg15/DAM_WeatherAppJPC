@@ -3,7 +3,9 @@ package dam.a51564.weatherapp.ui
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
@@ -170,5 +172,63 @@ fun LandscapeWeatherUI(
     onLongitudeChange: (String) -> Unit,
     onUpdateButtonClick: () -> Unit,
 ) {
-    // ToDo
+    Row(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        // LEFT COLUMN: Icon, Inputs, and Button
+        Column(
+            modifier = Modifier
+                .weight(0.5f)
+                .padding(start = 24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            if (wIcon != 0) {
+                Image(
+                    painter = painterResource(id = wIcon),
+                    contentDescription = "Weather Icon",
+                    modifier = Modifier.size(100.dp)
+                )
+            }
+
+            CoordinatesCard(
+                latitude = latitude,
+                longitude = longitude,
+                onLatitudeChange = onLatitudeChange,
+                onLongitudeChange = onLongitudeChange,
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            Button(
+                onClick = onUpdateButtonClick,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(48.dp),
+                shape = RoundedCornerShape(12.dp)
+            ) {
+                Text(text = "Update Weather", fontWeight = FontWeight.Bold)
+            }
+        }
+
+        // RIGHT COLUMN: Weather Details
+        Column(
+            modifier = Modifier
+                .weight(0.5f)
+                .padding(end = 24.dp),
+            verticalArrangement = Arrangement.Center
+        ) {
+            WeatherCard(
+                temperature = temperature,
+                windSpeed = windSpeed,
+                windDirection = windDirection,
+                seaLevelPressure = seaLevelPressure,
+                time = time,
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
+    }
 }
