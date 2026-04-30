@@ -8,4 +8,5 @@
     <string name="sea_level_pressure">Pressão ao Nível do Mar</string>
     <string name="time">Horas</string>
     <string name="update_weather_btn">Atualizar Tempo</string>
+    <string name="confirm_location_btn">Confirmar Localização</string>
 </resources>
